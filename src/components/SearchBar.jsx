@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 
-const SearchBar = ({ onSearch, isLoading }) => {
+export const SearchBar = ({ onSearch, isLoading }) => {
   const [query, setQuery] = useState('');
   const { url } = useStore(); // Utilisation du contexte
 
@@ -49,5 +49,3 @@ const SearchBar = ({ onSearch, isLoading }) => {
     </form>
   );
 };
-
-export default SearchBar;
