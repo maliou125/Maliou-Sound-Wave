@@ -3,7 +3,7 @@ import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
 import { DeezerService } from '../services/deezer';
 import { useStore } from '../context/StoreContext';
 
-const NowPlaying = ({ track, isPlaying, currentTime, duration, onTogglePlayPause, onSeek }) => {
+export const NowPlaying = ({ track, isPlaying, currentTime, duration, onTogglePlayPause, onSeek }) => {
   const { url } = useStore(); // Utilisation du contexte
 
   if (!track) return null;
@@ -81,5 +81,3 @@ const NowPlaying = ({ track, isPlaying, currentTime, duration, onTogglePlayPause
     </div>
   );
 };
-
-export default NowPlaying;
