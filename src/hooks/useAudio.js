@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
-import { Track } from '../types/music';
 
 export const useAudio = () => {
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -27,7 +26,7 @@ export const useAudio = () => {
     };
   }, [currentTrack]);
 
-  const playTrack = (track: Track) => {
+  const playTrack = (track) => {
     if (!track.preview) return;
 
     if (currentTrack?.id === track.id) {
@@ -60,7 +59,7 @@ export const useAudio = () => {
     }
   };
 
-  const seekTo = (time: number) => {
+  const seekTo = (time) => {
     if (audioRef.current) {
       audioRef.current.currentTime = time;
       setCurrentTime(time);

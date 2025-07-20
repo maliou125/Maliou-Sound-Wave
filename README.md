@@ -1,160 +1,168 @@
-# 🎵 Maliou Sound Wave - Music Discovery App
+# 🎵 Maliou Sound Wave - Application de Découverte Musicale
 
-A beautiful, modern music discovery application built with React and TypeScript, powered by the Deezer API. Maliou Sound Wave allows users to search for music, discover trending tracks, and play 30-second previews with a sleek, professional interface.
+Une belle application moderne de découverte musicale construite avec React.js et l'API Deezer. Maliou Sound Wave permet aux utilisateurs de rechercher de la musique, découvrir les tendances et écouter des aperçus de 30 secondes avec une interface élégante et professionnelle.
 
-## ✨ Features
+## ✨ Fonctionnalités
 
-- **🔍 Smart Music Search**: Real-time search across millions of tracks, artists, and albums
-- **🎧 Audio Previews**: Play 30-second preview clips directly in the browser
-- **🔥 Trending Tracks**: Discover what's hot with curated trending music
-- **📱 Responsive Design**: Beautiful experience across all devices
-- **🎨 Modern UI**: Dark theme with glassmorphism effects and smooth animations
-- **⚡ Fast Performance**: Optimized for speed with efficient API calls and caching
+- **🔍 Recherche Musicale Intelligente** : Recherche en temps réel parmi des millions de pistes, artistes et albums
+- **🎧 Aperçus Audio** : Lecture d'extraits de 30 secondes directement dans le navigateur
+- **🔥 Pistes Tendances** : Découvrez ce qui est populaire avec de la musique tendance
+- **📱 Design Responsive** : Expérience magnifique sur tous les appareils
+- **🎨 Interface Moderne** : Thème sombre avec effets glassmorphism et animations fluides
+- **⚡ Performance Rapide** : Optimisé pour la vitesse avec des appels API efficaces
 
-## 🚀 Live Demo
+## 🚀 Installation et Démarrage
 
-[View Live Demo](https://your-deployed-url.netlify.app)
+### Prérequis
+- Node.js (version 16 ou supérieure)
+- npm ou yarn
 
-## 🛠️ Tech Stack
+### Étapes d'installation
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Build Tool**: Vite
-- **API**: Deezer Web API
-- **Icons**: Lucide React
-- **Font**: Inter (Google Fonts)
-
-## 📦 Installation
-
-1. Clone the repository:
+1. **Cloner le repository** :
 ```bash
-git clone https://github.com/yourusername/maliou-sound-wave.git
+git clone https://github.com/votre-nom/maliou-sound-wave.git
 cd maliou-sound-wave
 ```
 
-2. Install dependencies:
+2. **Installer les dépendances** :
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. **Démarrer le serveur de développement** :
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+4. **Ouvrir dans le navigateur** :
+   - L'application sera disponible sur `http://localhost:5173`
 
-## 🎯 Usage
+### Scripts disponibles
 
-### Searching for Music
-1. Use the search bar at the top to find songs, artists, or albums
-2. Results appear in real-time as you type
-3. Click the play button on any track to start the preview
+- `npm run dev` : Démarre le serveur de développement
+- `npm run build` : Construit l'application pour la production
+- `npm run preview` : Prévisualise la version de production
+- `npm run lint` : Vérifie le code avec ESLint
 
-### Playing Music
-- Click the play/pause button on track cards to control playback
-- Use the now-playing bar at the bottom for transport controls
-- Drag the progress bar to seek to different parts of the track
+## 🛠️ Stack Technique
 
-### Discovering Music
-- Browse trending tracks on the homepage
-- Explore different genres and artists through search
-- Each track shows artist, album, and duration information
+- **Frontend** : React 18, JavaScript (JSX)
+- **Outil de Build** : Vite
+- **Styling** : Tailwind CSS
+- **API** : API Web Deezer
+- **Icônes** : Lucide React
+- **Police** : Inter (Google Fonts)
 
-## 🏗️ Project Structure
+## 📁 Structure du Projet
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── SearchBar.tsx   # Music search interface
-│   ├── TrackCard.tsx   # Individual track display
-│   ├── TrackList.tsx   # Collection of tracks
-│   └── NowPlaying.tsx  # Bottom player controls
-├── hooks/              # Custom React hooks
-│   └── useAudio.ts     # Audio playback management
-├── services/           # API and external services
-│   └── deezer.ts       # Deezer API integration
-├── types/              # TypeScript type definitions
-│   └── music.ts        # Music-related interfaces
-├── App.tsx             # Main application component
-└── main.tsx           # Application entry point
+├── components/              # Composants UI réutilisables
+│   ├── SearchBar.jsx       # Interface de recherche musicale
+│   ├── TrackCard.jsx       # Affichage de piste individuelle
+│   ├── TrackList.jsx       # Collection de pistes
+│   ├── NowPlaying.jsx      # Contrôles du lecteur en bas
+│   └── Navbar.jsx          # Barre de navigation
+├── context/                # Contexte React global
+│   └── StoreContext.jsx    # Gestion d'état globale
+├── hooks/                  # Hooks React personnalisés
+│   └── useAudio.js         # Gestion de la lecture audio
+├── services/               # Services API et externes
+│   └── deezer.js           # Intégration API Deezer
+├── App.jsx                 # Composant principal de l'application
+├── index.jsx               # Point d'entrée de l'application
+└── index.css               # Styles globaux
 ```
 
-## 🔧 API Integration
+## 🎯 Utilisation
 
-Maliou Sound Wave uses the Deezer Web API to fetch music data:
+### Recherche de Musique
+1. Utilisez la barre de recherche en haut pour trouver des chansons, artistes ou albums
+2. Les résultats apparaissent en temps réel pendant que vous tapez
+3. Cliquez sur le bouton lecture sur n'importe quelle piste pour démarrer l'aperçu
 
-- **Search Endpoint**: `/search?q={query}` - Search for tracks
-- **Chart Endpoint**: `/chart/0/tracks` - Get trending tracks
-- **CORS Handling**: Uses AllOrigins proxy for cross-origin requests
+### Lecture de Musique
+- Cliquez sur le bouton lecture/pause sur les cartes de piste pour contrôler la lecture
+- Utilisez la barre de lecture en bas pour les contrôles de transport
+- Faites glisser la barre de progression pour naviguer dans différentes parties de la piste
 
-### API Features Used
-- Track metadata (title, artist, album, duration)
-- Album artwork in multiple resolutions
-- 30-second audio previews
-- Artist information and images
+### Découverte de Musique
+- Parcourez les pistes tendances sur la page d'accueil
+- Explorez différents genres et artistes via la recherche
+- Chaque piste affiche les informations d'artiste, album et durée
 
-## 🎨 Design Philosophy
+## 🔧 Contexte Global (StoreContext)
 
-Maliou Sound Wave follows modern design principles:
+L'application utilise React Context pour la gestion d'état globale :
 
-- **Glassmorphism**: Semi-transparent elements with backdrop blur
-- **Dark Theme**: Easy on the eyes for extended listening sessions
-- **Gradient Accents**: Purple-to-pink gradients for visual interest
-- **Smooth Animations**: Hover effects and transitions for interaction feedback
-- **Typography**: Inter font for excellent readability
-- **Accessibility**: High contrast ratios and keyboard navigation
+```jsx
+import { useStore } from './context/StoreContext';
 
-## 📱 Responsive Design
+function MonComposant() {
+  const { url, currentTrack, isPlaying } = useStore();
+  
+  return (
+    <div>
+      <p>API URL: {url}</p>
+      <p>Piste actuelle: {currentTrack?.title}</p>
+    </div>
+  );
+}
+```
 
-The app is fully responsive with breakpoints for:
-- **Mobile**: < 768px (touch-optimized controls)
-- **Tablet**: 768px - 1024px (balanced layout)
-- **Desktop**: > 1024px (full feature set)
+### Variables disponibles dans le contexte :
+- `url` : URL de l'API Deezer
+- `currentTrack` : Piste actuellement sélectionnée
+- `isPlaying` : État de lecture
+- `searchQuery` : Requête de recherche actuelle
 
-## 🚀 Performance Optimizations
+## 🎨 Philosophie de Design
 
-- **Lazy Loading**: Images load on demand
-- **Debounced Search**: Reduces API calls during typing
-- **Efficient Re-renders**: Optimized React component updates
-- **Compressed Assets**: Optimized images and fonts
+Maliou Sound Wave suit les principes de design modernes :
 
-## 📈 Future Enhancements
+- **Glassmorphism** : Éléments semi-transparents avec flou d'arrière-plan
+- **Thème Sombre** : Facile pour les yeux lors de sessions d'écoute prolongées
+- **Accents Dégradés** : Dégradés violet-rose pour l'intérêt visuel
+- **Animations Fluides** : Effets de survol et transitions pour le feedback d'interaction
+- **Typographie** : Police Inter pour une excellente lisibilité
+- **Accessibilité** : Ratios de contraste élevés et navigation au clavier
 
-- **Playlists**: Create and manage custom playlists
-- **User Accounts**: Save favorite tracks and preferences
-- **Social Features**: Share tracks with friends
-- **Offline Mode**: Cache popular tracks for offline listening
-- **Advanced Search**: Filter by genre, year, duration
-- **Lyrics Integration**: Display synchronized lyrics
-- **Radio Mode**: Continuous playback of similar tracks
+## 📱 Design Responsive
 
-## 🤝 Contributing
+L'application est entièrement responsive avec des points de rupture pour :
+- **Mobile** : < 768px (contrôles optimisés pour le tactile)
+- **Tablette** : 768px - 1024px (mise en page équilibrée)
+- **Desktop** : > 1024px (ensemble complet de fonctionnalités)
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 🔮 Améliorations Futures
 
-## 📄 License
+- **Playlists** : Créer et gérer des playlists personnalisées
+- **Comptes Utilisateur** : Sauvegarder les pistes favorites et préférences
+- **Fonctionnalités Sociales** : Partager des pistes avec des amis
+- **Mode Hors Ligne** : Mettre en cache les pistes populaires pour l'écoute hors ligne
+- **Recherche Avancée** : Filtrer par genre, année, durée
+- **Intégration Paroles** : Afficher les paroles synchronisées
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🤝 Contribution
 
-## 🙏 Acknowledgments
+1. Forkez le repository
+2. Créez une branche de fonctionnalité (`git checkout -b feature/fonctionnalite-incroyable`)
+3. Commitez vos changements (`git commit -m 'Ajouter une fonctionnalité incroyable'`)
+4. Poussez vers la branche (`git push origin feature/fonctionnalite-incroyable`)
+5. Ouvrez une Pull Request
 
-- **Deezer** for providing the comprehensive music API
-- **Lucide** for beautiful, consistent icons
-- **Tailwind CSS** for rapid UI development
-- **React Team** for the excellent framework
+## 📄 Licence
 
-## 📞 Support
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour les détails.
 
-If you encounter any issues or have questions:
+## 🙏 Remerciements
 
-
-1. Create a new issue with detailed information
-2. Contact the maintainers
+- **Deezer** pour fournir l'API musicale complète
+- **Lucide** pour les icônes belles et cohérentes
+- **Tailwind CSS** pour le développement UI rapide
+- **Équipe React** pour l'excellent framework
 
 ---
 
-**Built with ❤️ and 🎵 by Maliou Marwen
+**Construit avec ❤️ et 🎵 par Maliou Marwen**
