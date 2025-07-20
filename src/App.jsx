@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Music, Heart } from 'lucide-react';
-import { DeezerService } from './services/deezer';
-import { useAudio } from './hooks/useAudio';
-import { useStore } from './context/StoreContext';
+import SearchBar from './components/SearchBar';
+import TrackList from './components/TrackList';
+import NowPlaying from './components/NowPlaying';
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import TrackList from './components/TrackList';
